@@ -9,7 +9,6 @@ const content = document.getElementById('content');
 const channelForm = document.getElementById('channel-form');
 const channelInput = document.getElementById('channel-input');
 const videoContainer = document.getElementById('video-container');
-const testButton = document.getElementById('test-button');
 const defaultChannel = 'pewdiepie';
 
 // Load auth2 library
@@ -30,7 +29,6 @@ function initClient() {
         updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
         authorizeButton.onclick = handleAuthClick;
         signoutButton.onclick = handleSignoutClick;
-        testButton.onclick = handleTestClick;
 
     });
 }
