@@ -67,8 +67,3 @@ function handleSignoutClick(){
 function getChannel(channel){
     console.log(channel);
 }
-
-//test buttons
-function handleTestClick(){
-    alert('This was a test.');
-}
