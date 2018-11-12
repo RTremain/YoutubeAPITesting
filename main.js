@@ -23,7 +23,7 @@ channelForm.addEventListener('submit', e => {
     const channel = channelInput.nodeValue;
 
     getChannel(channel);
-})
+});
 
 // Load auth2 library
 function handleClientLoad() {
