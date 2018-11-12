@@ -130,7 +130,7 @@ const requestOptions = {
 
 const request = gapi.client.youtube.playlistItems.list(requestOptions);
 
-request.execute(response => {
-    console.log(response);
-});
+    request.execute(response => {
+        console.log(response);
+    });
 }
