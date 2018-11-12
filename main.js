@@ -11,8 +11,19 @@ const content = document.getElementById('content');
 const channelForm = document.getElementById('channel-form');
 const channelInput = document.getElementById('channel-input');
 const videoContainer = document.getElementById('video-container');
-const defaultChannel = 'pewdiepie';
 const logInText = document.getElementById('login-text');
+
+const defaultChannel = 'pewdiepie';
+
+// Form submit and change channel
+
+channelForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const channel = channelInput.nodeValue;
+
+    getChannel(channel);
+})
 
 // Load auth2 library
 function handleClientLoad() {
