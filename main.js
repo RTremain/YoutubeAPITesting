@@ -20,7 +20,7 @@ const defaultChannel = 'pewdiepie';
 channelForm.addEventListener('submit', e => {
     e.preventDefault();
 
-    const channel = channelInput.nodeValue;
+    const channel = channelInput.value;
 
     getChannel(channel);
 });
