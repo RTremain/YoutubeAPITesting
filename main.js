@@ -136,7 +136,7 @@ const request = gapi.client.youtube.playlistItems.list(requestOptions);
         const playlistItems = response.result.items;
 
         if(playlistItems){
-            let output = '<h4 class="center-align">Latest Videos</h4>'
+            let output = ' <br /><h4 class="center-align">Latest Videos</h4>'
             //loop through videos and append output
             playlistItems.foreach(item => {
                 const videoId = item.snippet.resourceId.videoId;
