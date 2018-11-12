@@ -132,5 +132,28 @@ const request = gapi.client.youtube.playlistItems.list(requestOptions);
 
     request.execute(response => {
         console.log(response);
+
+        const playlistItems = response.result.items;
+
+        if(playlistItems){
+            let output = '<h4 class="center-align">Latest Videos</h4>'
+            //loop through videos and append output
+            playlistItems.foreach(item => {
+                const videoId = item.snippet.resourceId.videoId;
+
+                output += `
+                    <div class="col s3>
+                        <iframe width="100%" height="auto" src="https://www.youtube.com/embed/${videoId}"
+                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                `;
+            })
+
+            //Output videos
+            videoContainer.innerHTML = output;
+
+        } else{
+            videoContainer.innerHTML = 'No Uploaded Videos';
+        }
     });
 }
