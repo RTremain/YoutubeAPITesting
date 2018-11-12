@@ -98,9 +98,9 @@ function getChannel(channel){
                 const output = `<ul class="collection">
                     <li class="collection-item">Title: ${channel.snippet.title}</li>
                     <li class="collection-item">ID: ${channel.id}</li>
-                    <li class="collection-item">Subscribers: ${channel.statistics.subscriberCount}</li>
-                    <li class="collection-item">Views: ${channel.statistics.viewCount}</li>
-                    <li class="collection-item">Videos: ${channel.statistics.videoCount}</li>
+                    <li class="collection-item">Subscribers: ${numberWithCommas(channel.statistics.subscriberCount)}</li>
+                    <li class="collection-item">Views: ${numberWithCommas(channel.statistics.viewCount)}</li>
+                    <li class="collection-item">Videos: ${numberWithCommas(channel.statistics.videoCount)}</li>
                 </ul>
                 <p>${channel.snippet.description}</p>
                 <hr>
@@ -108,7 +108,29 @@ function getChannel(channel){
             }">Visit Channel</a>
                 `;
                 showChannelData(output);
+
+                const playlistId = channel.contentDetails.relatedPlaylists.uploads;
+
+                requestVideoPlaylist(playlistId);
             }
         )
         .catch(err => alert('No Channel By That Name'))
+}
+
+function numberWithCommas(x){
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function requestVideoPlaylist(playlistId){
+const requestOptions = {
+    playlistId: playlistId,
+    part:'snippet',
+    maxResults: 10
+}
+
+const request = gapi.client.youtube.playlistItems.list(requestOptions);
+
+request.execute(response => {
+    console.log(response);
+});
 }
