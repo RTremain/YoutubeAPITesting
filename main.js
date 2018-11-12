@@ -147,7 +147,7 @@ const request = gapi.client.youtube.playlistItems.list(requestOptions);
                         frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
                 `;
-            })
+            });
 
             //Output videos
             videoContainer.innerHTML = output;
