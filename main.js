@@ -15,6 +15,7 @@ const logInText = document.getElementById('login-text');
 
 const defaultChannel = 'pewdiepie';
 
+
 // Form submit and change channel
 
 channelForm.addEventListener('submit', e => {
