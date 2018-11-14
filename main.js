@@ -58,8 +58,18 @@ function updateSigninStatus(isSignedIn) {
         content.style.display = 'block';
         videoContainer.style.display = 'block';
         logInText.style.display = 'none';
-        userEmail = 
         getChannel(defaultChannel);
+        var request = gapi.client.plus.people.get({
+            'userId' : 'me'
+          });
+          
+          request.execute(response => {
+            console.log('ID: ' + response.id);
+            console.log('Display Name: ' + response.displayName);
+            console.log('Image URL: ' + response.image.url);
+            console.log('Profile URL: ' + response.url);
+            console.log('test message');
+          });
     }else {
         authorizeButton.style.display = 'block';
         signoutButton.style.display = 'none';
@@ -160,14 +170,3 @@ const request = gapi.client.youtube.playlistItems.list(requestOptions);
     });
 }
 
-var request = gapi.client.plus.people.get({
-    'userId' : 'me'
-  });
-  
-  request.execute(response => {
-    console.log('ID: ' + response.id);
-    console.log('Display Name: ' + response.displayName);
-    console.log('Image URL: ' + response.image.url);
-    console.log('Profile URL: ' + response.url);
-    console.log('test message');
-  });
