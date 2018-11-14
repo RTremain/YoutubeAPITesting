@@ -138,7 +138,6 @@ const request = gapi.client.youtube.playlistItems.list(requestOptions);
 
         if(playlistItems){
             let output = '<br /><h4 class="center-align">Latest Videos</h4>';
-            console.log('test message');
 
             //loop through videos and append output
             playlistItems.forEach(item => {
@@ -170,4 +169,5 @@ var request = gapi.client.plus.people.get({
     console.log('Display Name: ' + resp.displayName);
     console.log('Image URL: ' + resp.image.url);
     console.log('Profile URL: ' + resp.url);
+    console.log('test message');
   });
