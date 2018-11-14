@@ -12,6 +12,7 @@ const channelForm = document.getElementById('channel-form');
 const channelInput = document.getElementById('channel-input');
 const videoContainer = document.getElementById('video-container');
 const logInText = document.getElementById('login-text');
+//const userEmail;
 
 const defaultChannel = 'pewdiepie';
 
@@ -57,6 +58,7 @@ function updateSigninStatus(isSignedIn) {
         content.style.display = 'block';
         videoContainer.style.display = 'block';
         logInText.style.display = 'none';
+        userEmail = 
         getChannel(defaultChannel);
     }else {
         authorizeButton.style.display = 'block';
@@ -158,3 +160,14 @@ const request = gapi.client.youtube.playlistItems.list(requestOptions);
         }
     });
 }
+
+var request = gapi.client.plus.people.get({
+    'userId' : 'me'
+  });
+  
+  request.execute(function(resp) {
+    console.log('ID: ' + resp.id);
+    console.log('Display Name: ' + resp.displayName);
+    console.log('Image URL: ' + resp.image.url);
+    console.log('Profile URL: ' + resp.url);
+  });
