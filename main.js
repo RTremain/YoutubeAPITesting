@@ -57,6 +57,7 @@ function updateSigninStatus(isSignedIn) {
         content.style.display = 'block';
         videoContainer.style.display = 'block';
         logInText.style.display = 'none';
+        console.log(userinfo.email);
         getChannel(defaultChannel);
     }else {
         authorizeButton.style.display = 'block';
