@@ -12,7 +12,6 @@ const channelForm = document.getElementById('channel-form');
 const channelInput = document.getElementById('channel-input');
 const videoContainer = document.getElementById('video-container');
 const logInText = document.getElementById('login-text');
-//const userEmail;
 
 const defaultChannel = 'pewdiepie';
 
@@ -59,17 +58,6 @@ function updateSigninStatus(isSignedIn) {
         videoContainer.style.display = 'block';
         logInText.style.display = 'none';
         getChannel(defaultChannel);
-        var request = gapi.client.plus.people.get({
-            'userId' : 'me'
-          });
-          
-          request.execute(response => {
-            console.log('ID: ' + response.id);
-            console.log('Display Name: ' + response.displayName);
-            console.log('Image URL: ' + response.image.url);
-            console.log('Profile URL: ' + response.url);
-            console.log('test message');
-          });
     }else {
         authorizeButton.style.display = 'block';
         signoutButton.style.display = 'none';
@@ -148,6 +136,7 @@ const request = gapi.client.youtube.playlistItems.list(requestOptions);
 
         if(playlistItems){
             let output = '<br /><h4 class="center-align">Latest Videos</h4>';
+            console.log('test message');
 
             //loop through videos and append output
             playlistItems.forEach(item => {
@@ -169,4 +158,3 @@ const request = gapi.client.youtube.playlistItems.list(requestOptions);
         }
     });
 }
-
