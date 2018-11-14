@@ -164,10 +164,10 @@ var request = gapi.client.plus.people.get({
     'userId' : 'me'
   });
   
-  request.execute(function(resp) {
-    console.log('ID: ' + resp.id);
-    console.log('Display Name: ' + resp.displayName);
-    console.log('Image URL: ' + resp.image.url);
-    console.log('Profile URL: ' + resp.url);
+  request.execute(response => {
+    console.log('ID: ' + response.id);
+    console.log('Display Name: ' + response.displayName);
+    console.log('Image URL: ' + response.image.url);
+    console.log('Profile URL: ' + response.url);
     console.log('test message');
   });
